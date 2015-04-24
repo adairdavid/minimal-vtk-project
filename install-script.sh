@@ -25,7 +25,7 @@ else
     (cd $1/vtk/bin && cmake ../src -DVTK_WRAP_PYTHON=ON -DBUILD_SHARED_LIBS=ON -DVTK_Group_Qt=ON && make -j12)
 
     echo "Building ITK into $1/itk/bin/ (with Python wrappings) ..."
-    (cd $1/itk/bin && cmake ../src -DITK_WRAP_PYTHON=ON -DBUILD_SHARED_LIBS=ON -DITK_LEGACY_SILENT=ON && make -j12)
+    (cd $1/itk/bin && cmake ../src -DITK_WRAP_PYTHON=ON -DBUILD_SHARED_LIBS=ON -DModule_ITKVtkGlue=ON -DITK_LEGACY_SILENT=ON && make -j12)
 
     VTK_DIR="$1/vtk/bin"
     ITK_DIR="$1/itk/bin"
