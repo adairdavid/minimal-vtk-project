@@ -10,11 +10,22 @@ __test/CMakeLists.txt__ (line 14) and add a new file in
 __tests/__. See __test/sanity_check.cc__ for an example of writing a
 test.
 
-To build your project, do the following:
+To get up and running, run the install script:
+
+    sh install-script.sh desired/vtk/and/itk/install/path desiredprojectname
+
+The script will install VTK and ITK at the specified path, and will
+generate an executable with the desired project name. It will
+automatically run the application to verify the installation worked
+(opens a VTK renderer with a cylinder).
+
+From then on, anytime you want to run your application, do the following:
 
     ./configure
     make -j12
     ./bin/projectname
+
+where projectname is the specified desiredprojectname, above.
 
 __please note that the build will fail if the tests fail__
 
