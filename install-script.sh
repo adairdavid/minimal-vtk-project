@@ -18,7 +18,7 @@ else
         (cd "$1/itk/src" && git pull)
     else
         echo "Downloading ITK into $1/itk/src/ ..."
-        (cd $1 && mkdir itk && mkdir itk/bin && git clone git://itk.org/ITK.git itk/src)
+        (cd $1 && mkdir itk && mkdir itk/bin && git clone http://itk.org/ITK.git itk/src)
     fi
 
     echo "Building VTK into $1/vtk/bin/ (with Python wrappings and Qt support) ..."
