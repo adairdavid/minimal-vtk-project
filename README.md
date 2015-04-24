@@ -19,7 +19,24 @@ generate an executable with the desired project name. It will
 automatically run the application to verify the installation worked
 (opens a VTK renderer with a cylinder).
 
-From then on, anytime you want to run your application, do the following:
+For example, if you specify *~/Developer* as the install path for
+VTK/ITK, you will get the following:
+
+    ~/Developer/vtk
+    ~/Developer/vtk/src/
+    ~/Developer/vtk/bin/
+    ~/Developer/itk
+    ~/Developer/itk/src/
+    ~/Developer/itk/bin/
+
+And your current project will target the */bin/* directories for the
+shared libraries. The */src/* directories contain the git repository
+for the respective library. If you run the install script again (and
+provide the same path) the script will attempt to update the
+repository, rather than downloading the complete system.
+
+From then on, anytime you want to run your application, do the
+following:
 
     ./configure
     make -j12
