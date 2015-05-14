@@ -67,33 +67,10 @@ ENDFOREACH (CONFIGINPUT ${CONFIGINPUTS})
 FIND_PACKAGE (VTK REQUIRED)
 INCLUDE (${VTK_USE_FILE})
 
-IF(${VTK_MAJOR_VERSION} VERSION_LESS 6)
-  SET(VTK_LIBS vtkRendering vtkIO)
-ELSE(${VTK_MAJOR_VERSION} VERSION_LESS 6)
-  SET(VTK_LIBS vtkRenderingCore vtkRenderingImage vtkInteractionStyle
-      vtkRenderingFreeType vtkIOImage vtkIOMINC
-      vtkImagingStencil vtkImagingMath vtkFiltersSources vtksys)
-  SET(VTK_EXTRA_LIBS vtkIOMPIImage
-      vtkRenderingOpenGL vtkRenderingFreeTypeOpenGL
-      vtkRenderingOpenGL2 vtkRenderingFreeTypeOpenGL2)
-  FOREACH(TMP_LIB ${VTK_EXTRA_LIBS})
-    LIST(FIND VTK_LIBRARIES ${TMP_LIB} TMP_INDEX)
-    IF(TMP_INDEX GREATER -1)
-      SET(VTK_LIBS ${VTK_LIBS} ${TMP_LIB})
-    ENDIF(TMP_INDEX GREATER -1)
-  ENDFOREACH(TMP_LIB ${VTK_EXTRA_LIBS})
-ENDIF(${VTK_MAJOR_VERSION} VERSION_LESS 6)
-
-#
-# Target ITK
-#
-#FIND_PACKAGE (ITK REQUIRED)
-#INCLUDE (${ITK_USE_FILE})
-
 # Add thirdparty directories first!
-#ADD_SUBDIRECTORY(thirdparty/gmock-1.7.0)
+ADD_SUBDIRECTORY(thirdparty/gmock-1.7.0)
 ADD_SUBDIRECTORY(src)
-#ADD_SUBDIRECTORY(test)
+ADD_SUBDIRECTORY(test)
 
 #
 # Add Install Targets
