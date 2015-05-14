@@ -12,22 +12,19 @@ test.
 
 To get up and running, run the install script:
 
-    sh install-script.sh desired/vtk/and/itk/install/path desiredprojectname
+    sh install-script.sh desired/vtk/install/path desiredprojectname
 
-The script will install VTK and ITK at the specified path, and will
+The script will install VTK at the specified path, and will
 generate an executable with the desired project name. It will
 automatically run the application to verify the installation worked
 (opens a VTK renderer with a cylinder).
 
 For example, if you specify *~/Developer* as the install path for
-VTK/ITK, you will get the following:
+VTK, you will get the following:
 
     ~/Developer/vtk
     ~/Developer/vtk/src/
     ~/Developer/vtk/bin/
-    ~/Developer/itk
-    ~/Developer/itk/src/
-    ~/Developer/itk/bin/
 
 And your current project will target the */bin/* directories for the
 shared libraries. The */src/* directories contain the git repository
@@ -39,7 +36,7 @@ From then on, anytime you want to run your application, do the
 following:
 
     ./configure
-    make -j12
+    make -j4
     ./bin/projectname
 
 where projectname is the specified desiredprojectname, above.
